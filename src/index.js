@@ -9,5 +9,12 @@ import logger from 'redux-logger';
 import axios from 'axios';
 
 
-ReactDOM.render(<Provider store ={store}><App /></Provider>, document.getElementById('root'));
+
+
+const store = createStore({
+    //refelctionReducer()
+})//
+
+
+ReactDOM.render(<Provider store ={store}>< App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

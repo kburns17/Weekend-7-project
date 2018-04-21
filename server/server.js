@@ -3,13 +3,18 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 
+
+//route to DB for GET/POST/DELETE
+const reflectionRouter = require('./routes/router')
+
+
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-
+app.use('/api/reflections', reflectionRouter)
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

@@ -39,7 +39,7 @@ function* getReflectionsSaga(action){
 
 //----------REDUCERS---------
 
-const reflectionReducer = (state = [], action) => {
+const reflectionReducer = (state=[], action) => {
     switch (action.type) {
         case 'REFLECTIONS_LIST':
             return action.payload;

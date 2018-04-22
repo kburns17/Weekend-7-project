@@ -22,18 +22,16 @@ class Display extends Component{
 
 
     render(){
-        console.log(this.props.reduxState)
         let reflectionsArray = this.props.reduxState.reflectionReducer.map((reflection) => {
-            return (<p key={reflection.id}>{reflection.topic} {reflection.description} {reflection.bookmarked} {reflection.date}</p>)
+            return (<p key={reflection.id}>{reflection.topic} {reflection.description} 
+                            {reflection.bookmarked} {reflection.date}<button>Delete</button></p>)
         });
 
         return(
             <div>
                 <h2>View Reflections</h2>
                     {reflectionsArray}
-                    
             {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
-
             </div>
         )
     }

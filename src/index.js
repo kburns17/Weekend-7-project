@@ -17,18 +17,20 @@ import createSagaMiddleware from 'redux-saga';
 const sagaMiddleware = createSagaMiddleWare();
 
 
-
+//runs first
 function* rootSaga() {
     console.log('rootSaga loaded');
     yield takeEvery('GET_REFLECTIONS', getReflectionsSaga);
+    // yield takeEvery('ADD_REFLECTION', addReflectionSaga);
 }
+
+
 
 // GET reflections saga, requests data from SQL DB
 function* getReflectionsSaga(action){
-    try { console.log('in getReflectionsSaga');
-        const reflections = yield call(axios.get, '/api/reflections');
+    try { const reflections = yield call(axios.get, '/api/reflections');
         yield put({
-            type: 'REFLECTIONS_LIST',
+            type: 'SET_REFLECTIONS',
             payload: reflections.data
         })    
     } catch(error) {
@@ -37,16 +39,35 @@ function* getReflectionsSaga(action){
 } //end GET saga
 
 
+
+function* addReflectionSaga(action) {
+    try {console.log('in ADD saga');
+        yield call(axios.post, '/api/reflections', action.payload)
+    } catch (error) {
+        console.log('error ADD', error);
+    }
+}
+
+
 //----------REDUCERS---------
 
 const reflectionReducer = (state=[], action) => {
     switch (action.type) {
-        case 'REFLECTIONS_LIST':
+        case 'SET_REFLECTIONS':
             return action.payload;
         default:
             return state;
     }
 } 
+
+const addReflectionReducer = (state=[1], action) => {
+    switch (action.type) {
+        case 'ADD_REFLECTION':
+            return [...state, action.payload]
+        default:
+            return state;
+    }
+}
 
 
 

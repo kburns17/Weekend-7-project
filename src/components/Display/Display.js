@@ -7,12 +7,12 @@ const mapStateToProps = reduxState => ({
 });
 
 class Display extends Component{
-    // constructor(props) {
-    // super(props)
+    constructor(props) {
+    super(props)
 
     // this.state = { reflections: [] };
 
-    // }
+    }
 
     // Runs on start
     componentDidMount(){
@@ -23,14 +23,18 @@ class Display extends Component{
 
 
     render(){
+        console.log(this.props.reduxState)
         let reflectionsArray = this.props.reduxState.reflectionReducer.map((reflection) => {
-            return (<p key={reflection.id}> </p>)
-        })
+            return (<p key={reflection.id}>Reflect</p>)
+        });
 
         return(
             <div>
                 <h2>View Reflections</h2>
                     {reflectionsArray}
+                    
+            <pre>{JSON.stringify(this.props.reduxState)}</pre>
+
             </div>
         )
     }

@@ -7,11 +7,11 @@ const mapStateToProps = reduxState => ({
 });
 
 class Display extends Component{
-    // constructor(props) {
-    // super(props)
+    constructor(props) {
+    super(props)
 
-    // // this.state = { reflections: [] };
-    // }
+    this.state = { reflections: [] };
+    }
 
     // Runs on start
     componentDidMount(){
@@ -22,10 +22,10 @@ class Display extends Component{
 
 
 deleteReflection = (reflection) => {
-    console.log(this.state);
+    console.log('DELETE', reflection);
     this.props.dispatch({
-        type: 'DELETE_REFLECTION'
-        
+        type: 'DELETE_REFLECTION',
+        payload: this.state
     })  
 }
 

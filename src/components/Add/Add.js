@@ -32,12 +32,7 @@ class Add extends Component {
             type: 'ADD_REFLECTION',
             payload: this.state
         })
-        // this.setState({
-        //     newReflection: {
-        //         topic: '',
-        //         description: ''
-        //     }
-        // })
+       
     }
     
 

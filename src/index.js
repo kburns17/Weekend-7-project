@@ -52,10 +52,13 @@ function* addReflectionSaga(action) {
 
 
 function* deleteReflectionSaga(action) {
-    try { yield call(axios.delete, '/api/reflections', action.payload)
+    try { yield call(axios.delete, '/api/reflections/' + action.payload.id )
     } catch (error) {
         console.log('error DELETE');
     }
+    yield put({
+        type: 'GET_REFLECTIONS'
+    })
 }
 
 //----------REDUCERS---------

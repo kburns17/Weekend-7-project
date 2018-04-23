@@ -22,10 +22,13 @@ class Display extends Component{
 
 
 deleteReflection = (reflection) => {
-    console.log('DELETE', reflection);
+    console.log('DELETE', this.state);
+    // this.setState({
+    //     reflection
+    // })
     this.props.dispatch({
         type: 'DELETE_REFLECTION',
-        payload: this.state
+        payload: reflection
     })  
 }
 
@@ -33,7 +36,7 @@ deleteReflection = (reflection) => {
     render(){
         let reflectionsArray = this.props.reduxState.reflectionReducer.map((reflection) => {
             return (<p key={reflection.id}>{reflection.topic} {reflection.description} 
-                            {reflection.bookmarked} {reflection.date} <button onClick={this.deleteReflection}>Delete</button></p>)
+                            {reflection.bookmarked} {reflection.date} <button onClick={()=>this.deleteReflection(reflection)}>Delete</button></p>)
         });
 
         return(

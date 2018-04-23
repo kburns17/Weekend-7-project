@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 }); // end GET reflections
 
 
-
 // POST reflection
 router.post('/', (req, res) => {
     let reflection = req.body;
@@ -31,7 +30,23 @@ router.post('/', (req, res) => {
     }) 
 }) // end POST reflection
 
+
 // DELETE post
+router.delete('/:id', (req, res) => {
+    let reflectionId = req.params.id;
+    const queryText = `DELETE from "reflection" WHERE id = $1`;
+    pool.query(queryText, [reflectionId])
+    .then((response) => {
+        res.sendStatus(201)
+    }).catch((error) => {
+        console.log('DELETE error', error);
+        res.sendStatus(500)
+    })
+}) // end DELETE
+
+
+
+
 
 
 module.exports = router;

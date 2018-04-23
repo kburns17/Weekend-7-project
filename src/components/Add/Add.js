@@ -6,9 +6,23 @@ const mapStateToProps = reduxState => ({
 });
 
 class Add extends Component {
+    constructor(){
+        super()
+        this.state={
+                topic: '', 
+                description: ''
+        }
+    }
 
 
-
+    handleNameChange = (propertyName) => {
+        return (event) => {
+            this.setState({
+                ...this.state,
+                [propertyName] : event.target.value,
+        });
+    }
+}
 
 // handles the click event for adding a reflection
     handleAddReflection = (event)=>{
@@ -18,6 +32,12 @@ class Add extends Component {
             type: 'ADD_REFLECTION',
             payload: this.state
         })
+        // this.setState({
+        //     newReflection: {
+        //         topic: '',
+        //         description: ''
+        //     }
+        // })
     }
     
 
@@ -25,11 +45,17 @@ class Add extends Component {
         return(
             <div>
                 <h2>Add Reflection</h2>
-                {/* <pre>{JSON.stringify(this.state)}</pre> */}
+                <pre>{JSON.stringify(this.state.newReflection)}</pre>
                  <form onSubmit={this.handleAddReflection}>
-                    <input type="text" placeholder="Topic" />
-                    <input type="text" placeholder="Description"/>
-                    <input type="submit" value='Add Reflection'/>
+                    Topic:
+                    <br></br>
+                        <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')} />
+                    <br></br>
+                    Reflection:
+                    <br></br>
+                        <input rows="10" cols="50" type="text" value={this.state.description} onChange={this.handleNameChange('description')} />
+                    <br></br>
+                        <input type="submit" value='Add Reflection'/>
                  </form>
             </div>
         )

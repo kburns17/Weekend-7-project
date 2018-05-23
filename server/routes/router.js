@@ -5,14 +5,14 @@ const router = express.Router();
 
 // GET reflections
 router.get('/', (req, res) => {
-    const queryText = `SELECT id, topic, description, bookmarked, date FROM reflection`;
+    const queryText = `SELECT * FROM reflection ORDER BY "date" DESC`;
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log('error GET reflections', error);
         res.sendStatus(500);
     });
-}); // end GET reflections
+}); 
 
 
 // POST reflection
@@ -22,13 +22,12 @@ router.post('/', (req, res) => {
                         VALUES ($1, $2)`;
     pool.query(queryText, [ reflection.topic, reflection.description] )
     .then((result) => {
-        console.log(result.rows);
         res.sendStatus(201);
     }).catch((error) => {
         console.log('error POST reflection', error);
         res.sendStatus(500);  
     }) 
-}) // end POST reflection
+}) 
 
 
 // DELETE post
@@ -42,9 +41,20 @@ router.delete('/:id', (req, res) => {
         console.log('DELETE error', error);
         res.sendStatus(500)
     })
-}) // end DELETE
+}) 
 
-
+ //UPDATE/BOOKMARK reflection
+router.put('/:id', (req, res) => {
+    let bookmarkId = req.params.id;
+    const queryText = `UPDATE "reflection" SET "bookmarked" = NOT bookmarked WHERE "id" = $1`;
+    pool.query(queryText, [bookmarkId])
+    .then((response) => {
+        res.sendStatus(201)
+    }).catch((error) => {
+        console.log('bookmark error', error);
+        res.sendStatus(500)
+    })
+});
 
 
 

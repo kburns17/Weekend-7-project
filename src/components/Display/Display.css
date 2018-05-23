@@ -1,0 +1,10 @@
+.displayItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    margin: auto;
+    width: 300px;
+    border: 1px solid #033076; 
+    text-align: center;
+}

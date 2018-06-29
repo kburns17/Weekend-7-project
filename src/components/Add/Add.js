@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Panel } from 'react-bootstrap';
 
 const mapStateToProps = reduxState => ({
     reduxState
@@ -40,17 +41,11 @@ class Add extends Component {
         return(
             <div>
                 <h2>Add Reflection</h2>
-                <pre>{JSON.stringify(this.state.newReflection)}</pre>
+                {/* <pre>{JSON.stringify(this.state.newReflection)}</pre> */}
                  <form onSubmit={this.handleAddReflection}>
-                    Topic:
-                    <br></br>
-                        <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')} />
-                    <br></br>
-                    Reflection:
-                    <br></br>
-                        <input rows="10" cols="50" type="text" value={this.state.description} onChange={this.handleNameChange('description')} />
-                    <br></br>
-                        <input type="submit" value='Add Reflection'/>
+                 <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
+                 <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
+                 <input type="submit" value='Add Reflection'/>
                  </form>
             </div>
         )

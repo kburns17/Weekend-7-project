@@ -1,10 +1,7 @@
 .displayItem {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
+    float: left;
     margin: auto;
+    height: 300px;
     width: 300px;
-    /* border: 1px solid #033076;  */
     text-align: center;
 }

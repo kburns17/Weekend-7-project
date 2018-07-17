@@ -33,8 +33,8 @@ function* rootSaga() {
     yield takeEvery('ADD_REFLECTION', addReflectionSaga);
     yield takeEvery('DELETE_REFLECTION', deleteReflectionSaga);
     yield takeEvery('BOOKMARK', bookmarkReflectionSaga);
-
-
+    yield takeEvery('GET_BOOKMARKED', getBookmarkedSaga)
+    
 }
 
 
@@ -86,6 +86,19 @@ function* bookmarkReflectionSaga(action) {
     })
 }
 
+function* getBookmarkedSaga(action) {
+    try {
+        const bookmarks = yield call(axios.get, '/api/reflections/bookmarks');
+        yield put({
+            type: 'SET_BOOKMARKS',
+            payload: bookmarks.data
+        })
+     } catch(error){
+        console.log('error GET bookmarks', error)
+    }
+} //end GET BOOKMARKS saga
+
+
 
 //----------REDUCERS---------
 
@@ -95,6 +108,15 @@ const reflectionReducer = (state = [], action) => {
             return action.payload;
         default:
             return state;
+    }
+}
+
+const bookmarkReducer = (state=[], action)=>{
+    switch (action.type){
+        case 'SET_BOOKMARKS':
+            return action.payload;
+        default:
+                return state;
     }
 }
 
@@ -113,7 +135,8 @@ const reflectionReducer = (state = [], action) => {
 // redux Store
 const store = createStore(
     combineReducers({
-        reflectionReducer
+        reflectionReducer,
+        bookmarkReducer
     }),
     applyMiddleware(sagaMiddleware, logger),
 )

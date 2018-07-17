@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Display.css';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 import moment from 'moment';
+import { format } from 'util';
 
 const mapStateToProps = reduxState => ({
     reduxState
@@ -38,14 +39,14 @@ class Display extends Component{
 
 
     render(){
-        let date = moment(this.props.reduxState.reflectionReducer.date).format('MMMM Do YYYY');
-
+    
     let reflectionsArray = this.props.reduxState.reflectionReducer.map((reflection) => {
         return (<div key={reflection.id}>
                     <Panel className="displayItem">
                         <h3>{reflection.topic}</h3>
                         <p>{reflection.description}</p>
-                        <p>{reflection.bookmarked}</p><p>{date}</p>          
+                        <p>{reflection.bookmarked}</p>
+                        <p>{reflection.date}</p>          
                         <button onClick={()=>this.deleteReflection(reflection)}>Delete</button>
                         <button onClick={()=>this.bookmarkReflection(reflection)}>Bookmark</button>
                     </Panel></div>)
@@ -53,11 +54,12 @@ class Display extends Component{
 
         return(
             <div>
+             {JSON.stringify(this.props.reduxState.reflectionReducer, null, 2)}
                 <Grid>
                     <Row>
-                        {/* <Col xs={12} sm={6} md={4} lg={4}> */}
+                        <Col xs={12} sm={6} md={4} lg={4}>
                             <div className="displayWrapper"> {reflectionsArray}</div>
-                        {/* </Col> */}
+                        </Col>
                     </Row>
                 </Grid>
             </div>

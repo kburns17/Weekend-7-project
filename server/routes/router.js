@@ -56,6 +56,16 @@ router.put('/:id', (req, res) => {
     })
 });
 
+router.get('/bookmarks', (req, res)=>{
+    const queryText = `SELECT * FROM reflection WHERE "bookmarked" = true`;
+    pool.query(queryText).then((result)=>{
+        res.send(result.rows);
+    }).catch((error)=> {
+        console.log('error GET bookmarks', error);
+        res.sendStatus(500);
+    });
+});
+
 
 
 

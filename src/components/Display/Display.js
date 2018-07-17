@@ -55,12 +55,9 @@ class Display extends Component{
             <div>
                 <Grid>
                     <Row>
-                        <Col xs={12} md={12}>
-                            <h2><strong>View Reflections</strong></h2>
-                        </Col>
-                        <Col xs={12} sm={6} md={4} lg={4}>
+                        {/* <Col xs={12} sm={6} md={4} lg={4}> */}
                             <div className="displayWrapper"> {reflectionsArray}</div>
-                        </Col>
+                        {/* </Col> */}
                     </Row>
                 </Grid>
             </div>

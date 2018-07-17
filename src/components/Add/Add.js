@@ -45,7 +45,7 @@ class Add extends Component {
     render(){
         return(
             <div>
-                <h2><strong>Add Reflection</ strong></h2>
+                <h2><strong>Add New Reflection</ strong></h2>
                     <form onSubmit={this.handleAddReflection}>
                     <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
                     <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  

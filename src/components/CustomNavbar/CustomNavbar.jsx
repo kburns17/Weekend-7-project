@@ -14,15 +14,14 @@ class CustomNavbar extends Component {
                 <Navbar default collapseOnSelect>
                   <Navbar.Header>
                     <Navbar.Brand>
-                      Reflection Board Home
-                    {/* <a href="#home">React-Bootstrap</a> */}
+                      Reflection Board
                     </Navbar.Brand>
                   </Navbar.Header>
                  <Nav pullRight>
-                    <NavItem eventKey={1} href="/add">
+                    <NavItem eventKey={2} href="/add">
                     Add Reflection
                     </NavItem>
-                    <NavItem eventKey={2} href="/display">
+                    <NavItem eventKey={3} href="/display">
                     View Reflections
                     </NavItem>
                  </Nav>

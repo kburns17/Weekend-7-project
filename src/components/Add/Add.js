@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Panel, Modal, Button } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 
-    const mapStateToProps = reduxState => ({
-    reduxState
-    });
+const mapStateToProps = reduxState => ({
+reduxState
+});
 
 class Add extends Component {
     constructor(){
@@ -27,7 +27,7 @@ class Add extends Component {
     }
 }
 
-    // handles the click event for adding a reflection
+    // handles the click event for adding a reflection, then clears inputs
     handleAddReflection = (event)=>{
         event.preventDefault();
         console.log('ADD clicked');
@@ -41,12 +41,11 @@ class Add extends Component {
         })
     }
     
-
+    // renders the form to enter a reflection
     render(){
         return(
             <div>
                 <h2><strong>Add Reflection</ strong></h2>
-                    {/* <pre>{JSON.stringify(this.state.newReflection)}</pre> */}
                     <form onSubmit={this.handleAddReflection}>
                     <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
                     <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  

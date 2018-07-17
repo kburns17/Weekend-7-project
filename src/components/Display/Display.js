@@ -59,7 +59,7 @@ class Display extends Component{
                             <h2><strong>View Reflections</strong></h2>
                         </Col>
                         <Col xs={12} sm={6} md={4} lg={4}>
-                            <div className="displayWrapper">{reflectionsArray}</div>
+                            <div className="displayWrapper"> {reflectionsArray}</div>
                         </Col>
                     </Row>
                 </Grid>

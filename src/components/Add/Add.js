@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Panel } from 'react-bootstrap';
+import { Panel, Modal, Button } from 'react-bootstrap';
 
-const mapStateToProps = reduxState => ({
+    const mapStateToProps = reduxState => ({
     reduxState
-});
+    });
 
 class Add extends Component {
     constructor(){
@@ -15,7 +15,9 @@ class Add extends Component {
         }
     }
 
+    
 
+    // handles the change in state for a new reflection
     handleNameChange = (propertyName) => {
         return (event) => {
             this.setState({
@@ -25,7 +27,7 @@ class Add extends Component {
     }
 }
 
-// handles the click event for adding a reflection
+    // handles the click event for adding a reflection
     handleAddReflection = (event)=>{
         event.preventDefault();
         console.log('ADD clicked');
@@ -33,20 +35,23 @@ class Add extends Component {
             type: 'ADD_REFLECTION',
             payload: this.state
         })
-       
+        this.setState({
+            topic: '', 
+            description: '',
+        })
     }
     
 
     render(){
         return(
             <div>
-                <h2>Add Reflection</h2>
-                {/* <pre>{JSON.stringify(this.state.newReflection)}</pre> */}
-                 <form onSubmit={this.handleAddReflection}>
-                 <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
-                 <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
-                 <input type="submit" value='Add Reflection'/>
-                 </form>
+                <h2><strong>Add Reflection</ strong></h2>
+                    {/* <pre>{JSON.stringify(this.state.newReflection)}</pre> */}
+                    <form onSubmit={this.handleAddReflection}>
+                    <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
+                    <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
+                    <input type="submit" value='Add Reflection'/>
+                    </form>              
             </div>
         )
     }

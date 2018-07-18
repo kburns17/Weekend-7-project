@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Add.css';
 
 const mapStateToProps = reduxState => ({
 reduxState
@@ -45,11 +46,13 @@ class Add extends Component {
         return(
             <div>
                 <h2><strong>Add New Reflection</ strong></h2>
+                <div className="form">
                     <form onSubmit={this.handleAddReflection}>
                     <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
                     <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
                     <input type="submit" value='Add Reflection'/>
                     </form>              
+                    </div>
             </div>
         )
     }

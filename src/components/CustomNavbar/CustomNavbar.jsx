@@ -22,10 +22,10 @@ class CustomNavbar extends Component {
                     Add Reflection
                     </NavItem>
                     <NavItem eventKey={2} href="/display">
-                    View Reflections
+                    All Reflections
                     </NavItem>
                     <NavItem eventKey={3} href="/bookmarks">
-                    Bookmarked Reflections
+                    Memorable Reflections
                     </NavItem>
                  </Nav>
                 </Navbar>

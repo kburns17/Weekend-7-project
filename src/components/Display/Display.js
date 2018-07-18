@@ -54,7 +54,7 @@ class Display extends Component{
 
         return(
             <div>
-             {JSON.stringify(this.props.reduxState.reflectionReducer, null, 2)}
+             {/* {JSON.stringify(this.props.reduxState.reflectionReducer, null, 2)} */}
                 <Grid>
                     <Row>
                         <Col xs={12} sm={6} md={4} lg={4}>

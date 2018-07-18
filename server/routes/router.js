@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/bookmarks', (req, res)=>{
-    const queryText = `SELECT * FROM reflection WHERE "bookmarked" = true`;
+    const queryText = `SELECT * FROM reflection WHERE "bookmarked" = true ORDER BY "date" DESC`;
     pool.query(queryText).then((result)=>{
         res.send(result.rows);
     }).catch((error)=> {

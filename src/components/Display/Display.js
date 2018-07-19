@@ -54,6 +54,9 @@ class Display extends Component{
 
         return(
             <div>
+                <Col xs={12} sm={12} md={12} lg={12}>
+                    <h3><strong>All Reflections</strong></h3>
+                </Col>
              {/* {JSON.stringify(this.props.reduxState.reflectionReducer, null, 2)} */}
                 <Grid>
                     <Row>

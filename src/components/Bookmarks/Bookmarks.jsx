@@ -28,6 +28,9 @@ class Bookmarks extends Component {
         })
         return(
             <div>
+                <Col xs={12} sm={12} md={12} lg={12}>
+                    <h3><strong>Memorable Reflections</strong></h3>
+                </Col>
              <Grid>
                 <Row>
                     <Col xs={12} sm={6} md={4} lg={4}>

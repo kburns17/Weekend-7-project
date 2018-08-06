@@ -9,11 +9,14 @@ const mapStateToProps = reduxState => ({
     reduxState
 });
 
+
+
 class Display extends Component{
     constructor(props) {
     super(props)
-
     }
+
+    
 
     // Runs on start
     componentDidMount(){

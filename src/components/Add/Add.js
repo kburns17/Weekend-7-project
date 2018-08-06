@@ -48,8 +48,8 @@ class Add extends Component {
                 <h3><strong>Add New Reflection</ strong></h3>
                 <div className="form">
                     <form onSubmit={this.handleAddReflection}>
-                    <p>Topic: <input type="text" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
-                    <p>Reflection: <input type="text" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
+                    <p><input type="text" placeholder="Topic" value={this.state.topic} onChange={this.handleNameChange('topic')}/></p>              
+                    <p><input type="text" placeholder="Reflection" value={this.state.description} onChange={this.handleNameChange('description')}/></p>                  
                     <input type="submit" value='Add Reflection'/>
                     </form>              
                 </div>

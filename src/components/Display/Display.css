@@ -9,6 +9,8 @@
     transition-duration: 0.3s;
     transition-property: box-shadow;
     overflow: hidden;
+    background-color: #d7d7d7; 
+
 }
 
 .displayItem:hover {

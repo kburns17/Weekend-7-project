@@ -3,4 +3,8 @@ form{
     border: 1px black;
     height: 20px;
 
+    width: 30%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
 }
